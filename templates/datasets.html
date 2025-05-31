@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Dataset: {{ dataset }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-3">
+        Dataset: {{ dataset }}
+        <a href="/download/{{ dataset.lower() }}" class="btn btn-primary mb-3 float-end" download>↓ Download</a>
+        <a href="/" class="btn btn-success mb-3 float-end me-2">← Kembali</a>
+    </h2>
+
+    <div class="table-responsive">
+        {{ table | safe }}
+    </div>
+
+    <form action="/" method="POST">
+        <input type="hidden" name="use_sample" value="{{ dataset.lower() }}">
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg mb-2">🚀 Gunakan Dataset</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
